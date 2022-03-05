@@ -40,7 +40,7 @@ button:active{
 .Red:hover,
 .Red:active{
   box-shadow:2px 0 3px rgb(98, 3, 3) inset,-5px 5px 20px rgb(98, 3, 3) inset,0 0 3px rgb(98, 3, 3);
-  background:linear-gradient(to bottom,red 0%,rgb(117, 24, 24) 100%)
+  background:linear-gradient(to bottom,red 0%,rgb(117, 24, 24) 100%);
 }
 .Orange{
   background: orange;
@@ -48,7 +48,7 @@ button:active{
 .Orange:hover,
 .Orange:active{
   box-shadow:2px 0 3px rgb(102, 67, 1) inset,-5px 5px 20px rgb(102, 67, 1) inset,0 0 3px rgb(102, 67, 1);
-  background:linear-gradient(to bottom,orange 0%,rgb(134, 87, 0) 100%)
+  background:linear-gradient(to bottom,orange 0%,rgb(134, 87, 0) 100%);
 }
 .Yellow{
   background: yellow;
@@ -56,7 +56,7 @@ button:active{
 .Yellow:hover,
 .Yellow:active{
   box-shadow:2px 0 3px rgb(119, 119, 0) inset,-5px 5px 20px rgb(119, 119, 0) inset,0 0 3px rgb(119, 119, 0);
-  background:linear-gradient(to bottom,yellow 0%,rgb(119, 119, 0) 100%)
+  background:linear-gradient(to bottom,yellow 0%,rgb(119, 119, 0) 100%);
 }
 .Green{
   background: green;
@@ -64,7 +64,7 @@ button:active{
 .Green:hover,
 .Green:active{
   box-shadow:2px 0 3px rgb(0, 56, 0) inset,-5px 5px 20px rgb(0, 56, 0) inset,0 0 3px rgb(0, 56, 0);
-  background:linear-gradient(to bottom,green 0%,rgb(0, 56, 0) 100%)
+  background:linear-gradient(to bottom,green 0%,rgb(0, 56, 0) 100%);
 }
 .Blue{
   background: blue;
@@ -72,5 +72,10 @@ button:active{
 .Blue:hover,
 .Blue:active{
   box-shadow:2px 0 3px rgb(1, 1, 93) inset,-5px 5px 20px rgb(1, 1, 93) inset,0 0 3px rgb(1, 1, 93);
-  background:linear-gradient(to bottom,blue 0%,rgb(1, 1, 93) 100%)
+  background:linear-gradient(to bottom,blue 0%,rgb(1, 1, 93) 100%);
+}
+
+.Active{
+  box-shadow:2px 0 3px rgb(102, 67, 1) inset,-5px 5px 20px rgb(102, 67, 1) inset,0 0 3px rgb(102, 67, 1);
+  background:linear-gradient(to bottom,orange 0%,rgb(134, 87, 0) 100%);
 }

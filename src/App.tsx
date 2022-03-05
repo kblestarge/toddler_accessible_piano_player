@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 import { getRandomInt } from './utils';
 
   /*
@@ -6,8 +7,11 @@ import { getRandomInt } from './utils';
   - [DONE] UI with colorful vertical columns
   - [DONE] bind click events
   - [DONE] add midi music notes for a song
-  - [almost] bind all key press events (still need to trigger click event from html probably to get hover or active css to show up on key press)
-  - Make sure styling for mobile works (specifically hover with css on mobile)
+  - [DONE] Make sure styling for mobile works (specifically hover with css on mobile)
+  - [DONE] bind all key press events
+  - Desktop mode should allow click and drag to trigger other keys
+  - Fix bug where on mobile if user plays too hard it freezes (probabably a memory leak problem or something...?)
+  - playing a random note (keyup event) should also add the 'Active' class to the button
   - test with my kids
   - publish somewhere (s3? GitHub?)
   - buy a domain name and publish
@@ -16,11 +20,11 @@ import { getRandomInt } from './utils';
 const App = () => {
   return (
     <div className="App" onTouchMove={touchMoveHandler}>
-      <button className="Red" onClick={playC}></button>
-      <button className="Orange" onClick={playD}></button>
-      <button className="Yellow" onClick={playE}></button>
-      <button className="Green" onClick={playF}></button>
-      <button className="Blue" onClick={playG}></button>
+      <Button variant="contained" className="Red" onClick={playC} />
+      <Button variant="contained" className="Orange" onClick={playD} />
+      <Button variant="contained" className="Yellow" onClick={playE} />
+      <Button variant="contained" className="Green" onClick={playF} />
+      <Button variant="contained" className="Blue" onClick={playG} />
     </div>
   );
 }
@@ -70,16 +74,22 @@ const playNote = (note: string) => {
   audio.play();
 }
 
-document.addEventListener('keydown', playRandomNote);
+document.addEventListener('keyup', playRandomNote);
 
 let mostRecentTouchedButton: Element | null;
 const touchMoveHandler = (event:any) => {
   const touch = event.touches[0];
   const button = document.elementFromPoint(touch.clientX, touch.clientY) as HTMLElement;
   if (button && button !== mostRecentTouchedButton) {
-      console.log(button);
-      button.click();
-      mostRecentTouchedButton = button;
+    console.log(button);
+    // play sound
+    button.click();
+    // toggle Active class
+    button.className += 'Acive';
+    if (mostRecentTouchedButton != null){
+      mostRecentTouchedButton.className = mostRecentTouchedButton?.className?.replace('Acive', '');
+    }
+    mostRecentTouchedButton = button;
   }
 };
 
